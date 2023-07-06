@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 
+// Query is just a name here to represent our query
 const query = gql`
   query Query($name: String) {
     hello(name: $name)
