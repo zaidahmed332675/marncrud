@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 // Query is just a name here to represent our query
 const query = gql`
@@ -22,7 +23,22 @@ const Header = () => {
     return <div>Error!</div>;
   }
 
-  return <div>{data.hello}</div>;
+  return (
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+        </li>
+        <li class="nav-item">
+          <Link to="/books" className="nav-link">
+            Books
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Header;

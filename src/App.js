@@ -1,5 +1,7 @@
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import Header from "./Components/Header";
+
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./AppRoutes";
 
 const client = new ApolloClient({
   uri: "http://localhost:3001",
@@ -9,7 +11,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Header />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
