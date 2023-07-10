@@ -1,20 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Book from "../Components/Book";
-
-const query = gql`
-  query Query {
-    books {
-      id
-      title
-      year
-    }
-  }
-`;
+import { getBooksQuery } from "../graphql";
 
 const Books = () => {
-  const { data, loading, error } = useQuery(query);
-
-  console.log(error, data, 'aaa')
+  const { data, loading, error } = useQuery(getBooksQuery);
 
   return (
     <div>
@@ -23,6 +12,7 @@ const Books = () => {
           <tr>
             <th>Title</th>
             <th>Year</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
